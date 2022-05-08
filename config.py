@@ -1,3 +1,4 @@
+from distutils.debug import DEBUG
 import os
 
 
@@ -8,7 +9,7 @@ class ProdConfig(Config):
     pass
 
 class DevConfig(Config):
-    Debug = True
+    DEBUG = True
 
 config_options = {
     'development':DevConfig,
