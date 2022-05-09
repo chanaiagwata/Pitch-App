@@ -9,8 +9,8 @@ class User(db.Model):
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True, index =True)
     password_hash=db.Column(db.String(255))
-    password_secure = db.Column(db.string(255))
-    pitches = db.relationship("Pitch", bakcref ="user", lazy = "dynamic")
+    password_secure = db.Column(db.String(255))
+    pitches = db.relationship("Pitch", backref ="user", lazy = "dynamic")
     vote = db.relationship("Votes", backref="user", lazy = "dynamic")
     comment =db.relationship("Comments", backref = "user", lazy = "dynamic")
     
