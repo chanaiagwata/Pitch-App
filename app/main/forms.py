@@ -1,7 +1,7 @@
 from unicodedata import category
 from flask_wtf import FlaskForm
 from wtforms import StringField,TextAreaField,SubmitField
-from wtforms.validators import Required
+from wtforms.validators import DataRequired
 
 
 class Pitch_form(FlaskForm):
@@ -9,7 +9,7 @@ class Pitch_form(FlaskForm):
     submit = SubmitField('Submit')
     
 class Category_form(FlaskForm):
-    name = StringField('Pitch category', validators=[Required()])
+    name = StringField('Pitch category', validators=[DataRequired()])
     submit = SubmitField('Add to Category')
     
 class Comment_form(FlaskForm):
