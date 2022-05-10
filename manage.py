@@ -10,7 +10,7 @@ app = create_app('development')
 manager = Manager(app)
 manager.add_command('server', Server)
 
-
+#Initialize the Migrate class
 migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
 #use shell decorator to create shell context and function for passing properties into shell
