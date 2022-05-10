@@ -3,11 +3,11 @@ from flask import render_template, request, redirect,url_for, abort
 from . import main 
 from ..models import Comments, User, Category, Pitch, Votes, Category
 from ..import db
-from forms import Pitch_form, Category_form, Comment_form
+from . forms import Pitch_form, Category_form, Comment_form
 from flask_login import login_required,current_user
 
 
-#Provide routing for the main page which displays pitch categories
+#dynamic routing for the main page which displays pitch categories
 @main.route('/')
 def index():
     '''
@@ -37,7 +37,7 @@ def new_pitch(id):
     title = 'New pitch'
     return render_template('new_pitch.html',title = title, Pitch_form = pitch, category=category)
 
-#Route for a view function that returns pitches for a particular category
+#dynamic route for a view function that returns pitches for a particular category
 @main.route('/categories/<int:id>')
 def category(id):
     category = Category.query.get(id)
@@ -46,7 +46,7 @@ def category(id):
     pitches = Pitch.get_pitches(id)
     return render_template('category.html', pitches=pitches, category=category)
 
-#Creating new category
+#dynamic routing for creating new category
 @main.route('/add/category', methods=['GET','POST'])
 @login_required
 def new_category():
@@ -61,7 +61,7 @@ def new_category():
     title = 'Create new Category'
     return render_template('new_category.html', Category_form = form,title=title)
 
-#adding comment to a pitch
+#dynamic routing for adding comment to a pitch
 @main.route('/write_comment/<int:id>', methods=['GET', 'POST'])
 @login_required
 def add_comment(id):
@@ -81,7 +81,7 @@ def add_comment(id):
         
     
     
-#view each pitch with its comments
+#dynamic routing for viewing each pitch with its comments
 @main.route('/view-pitch/<int:id>', methods=['GET', 'POST'])
 @login_required
 def pitch_comment(id):
