@@ -1,7 +1,7 @@
 from flask import render_template,redirect,url_for,request, flash
 from . import auth
 from ..models import User
-from flask_login import login_user
+from flask_login import login_user,logout_user,login_required
 from .forms import  LoginForm, RegistrationForm
 from .. import db
 
@@ -31,3 +31,10 @@ def login():
 
     title = "PitchFactory login"
     return render_template('auth/login.html',login_form = login_form,title=title)
+
+#Logout route that calls flask's logout_user function
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for("main.index"))
