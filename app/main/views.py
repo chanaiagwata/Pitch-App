@@ -30,8 +30,8 @@ def new_pitch(id):
         abort(404)   #404 status code returned if no user is found in database
         
     if pitch.validate_on_submit():
-        content = pitch.content.data
-        new_pitch = Pitch(content=content,category_id= category.id,user_id=current_user.id)
+        content = pitch.Pitch_form.data
+        new_pitch = Pitch(gist=content,categories_id= category.id,user_id=current_user.id)
         new_pitch.save_pitch()
         return redirect(url_for('.category', id=category.id))
     title = 'New pitch'
@@ -65,7 +65,7 @@ def new_category():
 @main.route('/write_comment/<int:id>', methods=['GET', 'POST'])
 @login_required
 def add_comment(id):
-    form = Comment_form
+    form = Comment_form()
     title = 'Leave a comment about this pitch'
     pitches = Pitch.query.filter_by(id=id).first()
     
@@ -75,7 +75,7 @@ def add_comment(id):
         remark = form.remark.data
         new_comment = Comments(remark = remark, user_id = current_user.id, pitches_id = pitches.id)
         new_comment.save_comment() #save the new comment
-        return redirect(url_for('.view_pitch', id=pitches.id))
+        return redirect(url_for('.new_pitch', id=pitches.id))
 
     return render_template('add_comment.html', title=title, comment_form=form)
         

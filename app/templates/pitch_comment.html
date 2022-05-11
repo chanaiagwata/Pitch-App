@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+
+{%block styles%}
+  {{ super() }}
+{%endblock%}
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <div class="btn">
+            <a href="{{url_for('.new_pitch',id=pitches.category_id)}}"><button type="button" class="btn btn-success">Make a Pitch</button></a>
+        </div>
+        <div class='content'>
+            <p>{{pitches.content}}</p>
+        </div>
+        <!--Comments-->
+        <div class='comments'>
+            <a href="{{url_for('.add_comment',id=pitches.id)}}"><button type="button" class="btn btn-info">Leave your comment</button></a>
+        </div>
+
+        <!--Other comments-->
+        {% if comment %}
+        {{ macro.displayPitchWithComment(pitch_comment_list)}}
+        {% else %}
+        <p>No comments yet</p>
+        {% endif %}
+  
+
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+{% endblock %}
