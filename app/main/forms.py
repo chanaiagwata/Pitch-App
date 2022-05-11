@@ -13,5 +13,5 @@ class Category_form(FlaskForm):
     submit = SubmitField('Add to Category')
     
 class Comment_form(FlaskForm):
-    remark = TextAreaField('Leave a comment')
+    remark = TextAreaField('Add a comment')
     submit = SubmitField('Submit')
