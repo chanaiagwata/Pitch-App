@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-{% import 'macros.html' as macro%}
+{% import 'macros.html' as macro %}
 
 <!--Styles block goes here-->
 
@@ -16,7 +16,24 @@
 </div>
 
 <div class="container">
-
+    <div class="row">
+        
+        <a href="/add/category"><button type="button" class="btn btn-success">Add Category</button></a>
+        <ul>
+            {{ macro.displayCategoryList(categories) }}
+        </ul>
+    </div>
+    <div class=row>
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+              <p class="card-text"> {{ macro.displayPitches(pitches) }} </p>
+              <div>
+                <p>{{pitches.content}}</p>
+                <a href="/pitch/{{ pitches.id }}" class="card-link">COMMENT</a>
+              </div>          
+            </div>
+          </div>
+    </div>
 </div>
 
 {% endblock%}
