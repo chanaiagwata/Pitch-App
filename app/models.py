@@ -68,7 +68,17 @@ class Pitch(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))  #references primary key in user table
     vote = db.relationship("Votes", backref = "pitches", lazy = "dynamic")
     comment = db.relationship("Comments", backref = "pitches", lazy = "dynamic")
-
+    
+    #save pitches
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+        
+    #display pitches
+    @classmethod
+    def get_pitches(cls, id):
+        pitches = Pitch.query.filter_by(categories_id=id).all()
+        return pitches
 #Votes
 class Votes(db.Model):
     __tablename__ = 'votes'

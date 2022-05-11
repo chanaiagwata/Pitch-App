@@ -50,7 +50,7 @@ def category(id):
 @main.route('/add/category', methods=['GET','POST'])
 @login_required
 def new_category():
-    form = Category_form
+    form = Category_form()
     
     if form.validate_on_submit():
         name = form.name.data
