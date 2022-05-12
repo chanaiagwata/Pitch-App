@@ -34,7 +34,7 @@
 ### Languages and Frameworks
 * HTML
 * CSS
-*Python
+* Python
 * Bootstrap
 * Flask
 ### Known Bugs
