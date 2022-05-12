@@ -5,10 +5,12 @@
 {% block content %}
 <div class='container'>
     <div class='row'>
-        <h4>
+        <h4 class="text-center" style="font-weight:bold; margin-bottom:30px;">
             {{category.name|upper}}
         </h4>
-        <a href="/category/new-pitch/{{category.id}}""><button type="button" class="btn btn-info">Make a Pitch</button></a>
+        <div  class="text-center" style="margin-bottom:30px;">
+            <a href="/category/new-pitch/{{category.id}}"><button type="button" class="btn btn-info">Make a Pitch</button></a>
+        </div>
     </div>
 </div>
 {% if pitches %}

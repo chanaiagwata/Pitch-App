@@ -2,26 +2,33 @@
 {% import 'macros.html' as macro %}
 
 <!--Styles block goes here-->
-
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
 <!--Content block-->
 {% block content %}
 
 <div class="container">
 
     {% if current_user.is_authenticated%}
-        <h1>Hello {{current_user.username}} !</h1>
+        <h1 class="text-center">Hello {{current_user.username}} !</h1>
     {% else %}
-        <h1>Hello!</h1>
+        <h1 class="text-center">Hello!</h1>
     {%endif%}
 </div>
 
 <div class="container">
     <div class="row">
         
+        <p class='headline'>Welcome to PitchFactory, pitch your idea by first adding category or selecting from the list below.</p>
         <a href="/add/category"><button type="button" class="btn btn-success">Add Category</button></a>
-        <ul>
-            {{ macro.displayCategoryList(categories) }}
-        </ul>
+
+        <div class='category_list'>
+            <ul>
+                {{ macro.displayCategoryList(categories) }}
+            </ul>
+        </div>
     </div>
     <div class=row>
         <div class="card" style="width: 25rem;">
