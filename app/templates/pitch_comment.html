@@ -5,14 +5,14 @@
   {{ super() }}
 {%endblock%}
 {% block content %}
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 150rem;">
     <div class="card-body">
-        <div class="btn">
-            <a href="{{url_for('.new_pitch',id=pitches.category_id)}}"><button type="button" class="btn btn-success">Make a Pitch</button></a>
-        </div>
         <div class='content'>
-            <p>{{pitches.content}}</p>
+            <p>{{pitches.gist}}</p>
         </div>
+        <br>
+        <br>
+        <br>
         <!--Comments-->
         <div class='comments'>
             <a href="{{url_for('.add_comment',id=pitches.id)}}"><button type="button" class="btn btn-info">Leave your comment</button></a>
@@ -20,7 +20,7 @@
 
         <!--Other comments-->
         {% if comment %}
-        {{ macro.displayPitchWithComment(pitch_comment_list)}}
+        {{ macro.displayPitchWithComment(comment)}}
         {% else %}
         <p>No comments yet</p>
         {% endif %}
@@ -28,11 +28,4 @@
 
     </div>
   </div>
-{% endblock %}
-
-
-
-
-
-
 {% endblock %}

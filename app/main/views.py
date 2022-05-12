@@ -38,7 +38,7 @@ def new_pitch(id):
     return render_template('new_pitch.html',title = title, Pitch_form = pitch, category=category)
 
 #dynamic route for a view function that returns pitches for a particular category
-@main.route('/categories/<int:id>')
+@main.route('/category/<int:id>')
 def category(id):
     category = Category.query.get(id)
     if category is None:
@@ -62,7 +62,7 @@ def new_category():
     return render_template('new_category.html', Category_form = form,title=title)
 
 #dynamic routing for adding comment to a pitch
-@main.route('/write_comment/<int:id>', methods=['GET', 'POST'])
+@main.route('/add_comment/<int:id>', methods=['GET', 'POST'])
 @login_required
 def add_comment(id):
     form = Comment_form()
@@ -82,7 +82,7 @@ def add_comment(id):
     
     
 #dynamic routing for viewing each pitch with its comments
-@main.route('/view-pitch/<int:id>', methods=['GET', 'POST'])
+@main.route('/pitch_comment/<int:id>', methods=['GET', 'POST'])
 @login_required
 def pitch_comment(id):
     print(id)
@@ -91,5 +91,5 @@ def pitch_comment(id):
     if pitches is None:
         abort(404)
     comment = Comments.get_comments(id)
-    return render_template('pitch_comment.html', title=title, pitches=pitches, comment=comment, category_id=id)
+    return render_template('pitch_comment.html', title=title, pitches=pitches, comment=comment)
          

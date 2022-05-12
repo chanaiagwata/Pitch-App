@@ -17,9 +17,9 @@
     {% for pitches in pitches_list %}
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pitches-card">
         <h5 class='text-center'>{{pitches.name|upper}}</h5></a>
-        <p>{{pitches.content}}</p>
+        <p>{{pitches.gist}}</p>
         <hr>
-        <h4><span><a href=" {{url_for('.new_pitch',id=pitches.id)}}">Review Comments</a></span></h4>
+        <h4><span><a href=" {{url_for('.pitch_comment',id=pitches.id)}}">Review Comments</a></span></h4>
         <hr>
         <a href=" {{url_for('.add_comment',id=pitches.id)}}"><h4>Add Comment</h4></a>
     </div>
@@ -27,11 +27,11 @@
 {% endmacro %}
 
 <!--Displaying a pitch with comments-->
-{% macro displayPitchWithComment(pitch_comment_list) %}
-    {% for comment in pitch_comment_list %}
+{% macro displayPitchWithComment(comment) %}
+    {% for comment in comment %}
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pitchComment-card">
             <p>{{comment.remark}}</p>
-            <p>{{comment.time_posted.strftime('%Y/%m/%d || %r') }}</p>
+            <p>{{comment.time_stamp.strftime('%Y/%m/%d || %r') }}</p>
         </div>
     {% endfor %}
 {% endmacro %}
