@@ -3,13 +3,13 @@
 ## By Chanai Agwata
 ### (MS School Project)
 
-* [Overall Description](https://github.com/chanaiagwata/News_API#overall-project-description)
+* [Overall Description](https://github.com/chanaiagwata/Pitch-App#overall-project-description)
 
-* [Setup Instructions](https://github.com/chanaiagwata/News_API#setup-instructions)
+* [Setup Instructions](https://github.com/chanaiagwata/Pitch-App#setup-instructions)
 
-* [License](https://github.com/chanaiagwata/News_API#license)
+* [License](https://github.com/chanaiagwata/Pitch-App#license)
 
-* [Author's Info](https://github.com/chanaiagwata/News_API#authors-info)
+* [Author's Info](https://github.com/chanaiagwata/Pitch-App#authors-info)
 
 ## Overall Project Description
 <p>This is a an application that allows users to make pitches within a minute. The pitches are organized by category.</p>
@@ -30,7 +30,7 @@
 * Read comments,
 * Make a comment
 
-![screenshot]()
+![screenshot](https://raw.githubusercontent.com/chanaiagwata/Pitch-App/master/app/static/pitchscreen.png)
 ### Languages and Frameworks
 * HTML
 * CSS
